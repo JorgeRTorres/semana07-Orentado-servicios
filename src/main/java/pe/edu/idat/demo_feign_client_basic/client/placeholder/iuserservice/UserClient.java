@@ -1,8 +1,7 @@
 package pe.edu.idat.demo_feign_client_basic.client.placeholder.iuserservice;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,5 +12,8 @@ public interface UserClient {
     List<User> obtenerUsuario();
 
     @GetMapping("/users/{id}")
-    User obtenerUsuarioXId(@PathVariable("id") Long id);
+    User obtenerUsuarioXId(@PathVariable("id") Long id, @RequestHeader("Authorization") String token);
+
+    @PostMapping("/users")
+    User guardarUsuario(@RequestBody User user);
 }

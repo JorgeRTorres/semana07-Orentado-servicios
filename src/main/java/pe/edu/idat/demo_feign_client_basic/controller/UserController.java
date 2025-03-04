@@ -1,9 +1,6 @@
 package pe.edu.idat.demo_feign_client_basic.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pe.edu.idat.demo_feign_client_basic.client.placeholder.iuserservice.User;
 import pe.edu.idat.demo_feign_client_basic.service.IUserService;
 
@@ -26,5 +23,9 @@ public class UserController {
     @GetMapping("/{id}")
     public User obtenerxId (@PathVariable Long id){
         return  iUserService.obtenerUserClientXId(id);
+    }
+    @PostMapping
+    public User guardarUsuario(@RequestBody User usaurio){
+        return iUserService.guardarUsuario(usaurio);
     }
 }

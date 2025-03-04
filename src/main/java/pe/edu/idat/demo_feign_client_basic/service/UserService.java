@@ -23,6 +23,12 @@ public class UserService implements IUserService{
 
     @Override
     public User obtenerUserClientXId(Long id) {
-        return userClient.obtenerUsuarioXId(id);
+        return userClient.obtenerUsuarioXId(id, "token");
     }
+
+    @Override
+    public User guardarUsuario(User usuario) {
+        return userClient.guardarUsuario(usuario);
+    }
+
 }
